@@ -2,9 +2,12 @@ import sys
 
 commands = []
 
-def main():
-    sys.stdout.write("$ ")
+def write(s):
+    sys.stdout.write(s)
     sys.stdout.flush()
+
+def main():
+    write("$ ")
 
     # Wait for user input
     command = input()
