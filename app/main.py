@@ -1,11 +1,11 @@
 import sys
 
+commands = []
 
 def main():
-    # Uncomment this block to pass the first stage
     sys.stdout.write("$ ")
+    sys.stdout.flush()
 
-    commands = []
     # Wait for user input
     command = input()
 
