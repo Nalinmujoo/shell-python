@@ -1,6 +1,6 @@
 import sys
 
-commands = set(['exit'])
+commands = set(['exit', 'echo'])
 
 def write(s):
     sys.stdout.write(s)
@@ -28,6 +28,11 @@ def main():
             if len(args) > 1 and args[1].isdigit():
                 sys.exit(int(args[1]))       
 
+        if args[0] == "echo":
+            if len(args) > 1:
+                print(" ".join(args[1:]))
+            else:
+                print("")
 
 if __name__ == "__main__":
     main()
