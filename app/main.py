@@ -1,6 +1,6 @@
 import sys
 
-commands = []
+commands = set()
 
 def write(s):
     sys.stdout.write(s)
@@ -8,12 +8,12 @@ def write(s):
 
 def main():
     write("$ ")
-
+    
     # Wait for user input
     command = input()
 
     if command not in commands:
-        print(f"{command}: command not found\n")
+        print(f"{command}: command not found")
         main()
 
 
