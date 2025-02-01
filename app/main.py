@@ -1,6 +1,6 @@
 import sys
 
-commands = set(['exit', 'echo'])
+commands = set(['exit', 'echo', 'type'])
 
 def write(s):
     sys.stdout.write(s)
@@ -26,13 +26,22 @@ def main():
 
         if args[0] == "exit":
             if len(args) > 1 and args[1].isdigit():
-                sys.exit(int(args[1]))       
+                sys.exit(int(args[1]))
+            else:
+                sys.exit()       
 
         if args[0] == "echo":
             if len(args) > 1:
-                print(" ".join(args[1:]))
+                sys.stdout.write(" ".join(args[1:])+ "\n")
             else:
-                print("")
+                sys.stdout.write("\n")
+
+        if args[0] == "type":
+            if len(args) > 1 and args[1] in commands:
+                sys.stdout.write(f"{args[1]} is a shell builtin\n")
+            else:
+                sys.stdout.write(f"{args[1]}: not found\n")
+
 
 if __name__ == "__main__":
     main()
