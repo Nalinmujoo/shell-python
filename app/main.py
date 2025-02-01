@@ -21,16 +21,17 @@ def main():
         # Wait for user input
         command = input()
 
-        # print("cmd", command)
-
         args = command.split(" ")
 
-        # print("args", args)
-
-        if args[0] not in commands:
-            print(f"{command}: command not found")
+        if args[0] not in commands and find_in_path(args[0]):
+            os.system(command)
             continue
-
+        elif args[0] not in commands:
+            sys.stdout.write(f"{command}: command not found\n")
+            continue 
+        else:
+            pass
+        
         if args[0] == "exit":
             if len(args) > 1 and args[1].isdigit():
                 sys.exit(int(args[1]))
@@ -51,6 +52,7 @@ def main():
             else:
                 sys.stdout.write(f"{args[1]}: not found\n")
 
+        
 
 if __name__ == "__main__":
     main()
